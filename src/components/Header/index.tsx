@@ -1,5 +1,5 @@
 import React from "react";
-import SignInButton from "./SignInButton";
+import SignInButton from "../SignInButton";
 
 import styles from "./styles.module.scss";
 
