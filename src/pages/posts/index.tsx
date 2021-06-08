@@ -12,7 +12,7 @@ interface Post {
   slug: string;
   title: string;
   excerpt: string;
-  updatedAt: Date;
+  updatedAt: string;
 }
 interface PostsProps {
   posts: Post[];
@@ -60,14 +60,13 @@ export const getStaticProps: GetStaticProps = async () => {
       excerpt:
         post.data.content.find((content) => content.type === "paragraph")
           ?.text ?? "",
-      updatedAt: new Date(post.last_publication_date).toLocaleDateString(
-        "pt-BR",
-        {
+      updatedAt: new Date(post.last_publication_date)
+        .toLocaleDateString("pt-BR", {
           day: "2-digit",
           month: "long",
           year: "numeric",
-        }
-      ),
+        })
+        .toString(),
     };
   });
 
